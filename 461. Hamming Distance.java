@@ -25,15 +25,12 @@ class Solution {
         String xBinaryString = String.format("%32s", Integer.toBinaryString(x)).replace(' ','0');
         String yBinaryString = String.format("%32s", Integer.toBinaryString(y)).replace(' ','0');   
         
-        //Values for comparisons
+        //Value for counting distance
         int hammingCount = 0;
-        char subStringX;
-        char subStringY;
         
-        for(int i = 0; i < 32; i++) {
-            subStringX = xBinaryString.charAt(i);
-            subStringY = yBinaryString.charAt(i);            
-            if(subStringX != subStringY) {
+        //Analyze each "bit" character        
+        for(int i = 0; i < 32; i++) {           
+            if(xBinaryString.charAt(i) != yBinaryString.charAt(i)) {
                 hammingCount++;
             }
         }
