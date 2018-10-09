@@ -20,6 +20,7 @@ After running your query, the above salary table should have the following rows:
 | 4  | D    | m   | 500    |
 */
 
-update salary set sex = case when sex = 'f' then 'm'
+update salary 
+	set sex = case when sex = 'f' then 'm'
                         when sex = 'm' then 'f'
                         end;

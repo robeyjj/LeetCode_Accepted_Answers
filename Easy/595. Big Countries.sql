@@ -26,4 +26,7 @@ For example, according to the above table, we should output:
 */
 
 # Write your MySQL query statement below
-SELECT name,population,area FROM World WHERE population > 25000000 OR area > 3000000;
+SELECT name,population,area 
+	FROM World 
+	WHERE population > 25000000 
+	OR area > 3000000;
