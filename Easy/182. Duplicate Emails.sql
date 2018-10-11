@@ -21,6 +21,6 @@ Note: All emails are in lowercase.
 */
 
 SELECT Email
-    FROM Person
-    GROUP BY Email
-    HAVING COUNT(*) > 1;
+	FROM Person
+	GROUP BY Email
+	HAVING COUNT(*) > 1;

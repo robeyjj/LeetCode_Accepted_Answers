@@ -32,7 +32,7 @@ The students should not be counted duplicate in each course.
 */
 
 SELECT class
-FROM (SELECT class, COUNT(DISTINCT student) AS counter 
-      FROM COURSES
-      GROUP BY class) AS fiveplus
-WHERE counter >= 5 ;
+	FROM (SELECT class, COUNT(DISTINCT student) AS counter 
+      		FROM COURSES
+      		GROUP BY class) AS fiveplus
+	WHERE counter >= 5 ;
