@@ -16,11 +16,57 @@ Note:
 */
 class Solution {
     public String[] findWords(String[] words) {
-          List<String> returnWords = new ArrayList<>();
-          for (String s : words)
-                if (s.matches("[QWERTYUIOPqwertyuiop]+|[ASDFGHJKLasdfghjkl]+|[ZXCVBNMzxcvbnm]+"))
-                      returnWords.add(s);
-          return returnWords.toArray(new String[0]);
+        String topRow = "QWERTYUIOPqwertyuiop";
+        String midRow = "ASDFGHJKLasdfghjkl";
+        String botRow = "ZXCVBNMzxcvbnm";
+        boolean containsTop = false;
+        boolean containsMid = false;
+        boolean containsBot = false;
+        ArrayList<String> returnWords = new ArrayList<String>();
+        int counter = 0;
+        
+                
+        for(String word : words) {
+            if(word.length() == 1){
+                returnWords.add(word);
+                continue;
+            }
+            containsTop = containsMid = containsBot = false;
+            counter = 0;
+            for(char c : word.toCharArray()) {
+                if(topRow.indexOf(c) > -1) {
+                    containsTop = true;
+                    counter++;
+                    if(containsMid || containsBot) {                       
+                        break;
+                    }
+                    if(counter == word.length()) {
+                        returnWords.add(word); 
+                    }
+                }
+                if(midRow.indexOf(c) > -1) {
+                    containsMid = true;
+                    counter++;
+                    if(containsTop || containsBot){                        
+                        break;
+                    }
+                    if(counter == word.length() ) {
+                        returnWords.add(word);
+                    }
+                }
+                if(botRow.indexOf(c) > -1) {
+                    containsBot = true;
+                    counter++;
+                    if(containsTop || containsMid) {                        
+                        break;
+                    }
+                    if(counter == word.length()) {
+                        returnWords.add(word);
+                    }
+                }
+            }         
+        }
+        return returnWords.toArray(new String[returnWords.size()]);
     }
 }
-//Today we learned RegEx's are extremely slow
+//Solution runtime beats 100% of java submissions!
