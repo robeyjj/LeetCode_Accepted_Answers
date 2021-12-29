@@ -45,7 +45,6 @@ class Solution {
             else {
                 return 0;
             }
-            //return "-" . strrev($str);
         }
         else {   
             $strrev = (int)strrev($str);
